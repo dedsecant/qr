@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="input.css">
+    <title>QR Code Generator</title>
+</head>
+<body>
+    <main class="bg-gray-800 h-screen">
+        <div class="flex justify-center py-[10rem]">
+
+
+            <div class="box h-[23rem] bg-white w-[25rem] rounded-xl flex flex-col  ">
+
+
+                <p class="flex justify-center py-4 font-bold  text-2xl">QR CODE Generator</p>
+                
+                <input type="text" value="" placeholder="Text or URL" class=" border-2  mx-16  px-5 py-1  w-[17rem] transition  hover:bg-slate-300 rounded-lg border-black" id="qrText">
+
+                
+                <!-- first function will run from here then get the value returned from qrtext i.e from the input field and create a image i.e the qr code which will be displayed in img tag-->
+                <button class="  w-[5rem] transition bg-slate-200 rounded-lg hover:bg-gray-400 border border-black mt-3 mx-[10rem]  px-1 py-1" onclick="generateQR()">click here</button>
+
+                <div id="imgBox" class="w-8/12 ">
+                    <img src="" id="qrImage" class=" mx-32 mt-6  ">
+                </div>
+
+
+            </div>
+
+
+        </div>
+    </main>
+
+    <script>
+
+
+         
+        let imgBox = document.getElementById("imgBox");
+
+        
+        let qrImage = document.getElementById("qrImage");
+
+        // gives us the value returned in the input field
+        let qrText = document.getElementById("qrText");
+
+        
+        // only have to add the value 
+        function generateQR()
+        {
+            qrImage.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + qrText.value 
+        }
+
+
+    </script>
+
+
+</body>
+</html>
